@@ -5,12 +5,12 @@ exports.index = (req,res) => {
 }
 
 // Display list of all books.
-exports.listings_list = function(req, res) {
+exports.listings_list = (req, res) => {
     res.send('NOT IMPLEMENTED: Book list');
 };
 
 // Display detail page for a specific book.
-exports.listing_detail = function(req, res) {
+exports.listing_detail = (req, res) => {
     res.send('NOT IMPLEMENTED: listing detail: ' + req.params.id);
 };
 
