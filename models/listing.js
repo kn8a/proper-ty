@@ -13,13 +13,11 @@ var listingSchema = new Schema(
         image: {type: String},
         current_status: {type: String, required: true, enum: ['Active', 'Pending', 'Sold', 'Cancelled'], default: 'Active'},
         price: {type: Number, required: true},
-        list_details: {
-            list_date: {type: Date},
-            pending_date: {type: Date},
-            sold_date: {type: Date},
-            cancelled_date: {type: Date},
-            original_price: {type: Number},
-            },
+        list_date: {type: Date},
+        pending_date: {type: Date},
+        sold_date: {type: Date},
+        cancel_date: {type: Date},
+        original_price: {type: Number},
         history: {type: Array},
         listing_company: {type: Schema.Types.ObjectId, ref: 'company'}
     }

@@ -24,9 +24,20 @@ exports.index = (req,res) => {
 }
 
 // Display list of all books.
-exports.listings_list = (req, res) => {
-    res.send('NOT IMPLEMENTED: Book list');
-};
+exports.listings_list = function(req, res, next) {
+
+    listing.find({})
+      .sort({list_details : 1})
+      .populate('listing_company')
+      .exec(function (err, listings) {
+        if (err) { return next(err); }
+        //Successful, so render
+        res.render('listings', { title: 'All listings', listings: listings });
+        console.log(listings)
+      });
+  
+  };
+  
 
 // Display detail page for a specific book.
 exports.listing_detail = (req, res) => {
