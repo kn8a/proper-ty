@@ -27,7 +27,7 @@ exports.index = (req,res) => {
 exports.listings_list = function(req, res, next) {
 
     listing.find({})
-      .sort({list_details : 1})
+      .sort({list_date : 1})
       .populate('listing_company')
       .exec(function (err, listings) {
         if (err) { return next(err); }
@@ -38,6 +38,10 @@ exports.listings_list = function(req, res, next) {
   
   };
   
+//   <% for (var i = 0; i < listings.length; i++) { %>
+            
+//     <% } %>
+
 
 // Display detail page for a specific book.
 exports.listing_detail = (req, res) => {

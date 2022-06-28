@@ -8,6 +8,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    
+    <h1><%= title %></h1>
+    <ul>
+        <% for (var i = 0; i < listings.length; i++) { %>
+            <li>
+                <a href="listings[i].url"> <%= listings[i].address.street + ' ' + listings[i].address.city + ' ' + listings[i].address.state + ', '+ listings[i].address.zip %> </a>
+                
+            </li>
+        <% } %>
+    </ul>
 </body>
 </html>
