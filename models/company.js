@@ -17,3 +17,5 @@ companySchema
 .virtual('url').get(function() {
     return '/company' + this._id
 })
+
+module.exports = mongoose.model('company', companySchema)

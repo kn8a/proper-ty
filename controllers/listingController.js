@@ -1,7 +1,26 @@
 const listing = require('../models/listing')
+const company = require('../models/company')
+var async = require('async');
+
 
 exports.index = (req,res) => {
-    res.send('NOT IMPLEMENTED: Site Home Page')
+    
+    async.parallel({
+        listings_count: function(callback) {
+            listing.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
+        },
+
+        listings_active_count: function(callback) {
+            listing.countDocuments({status:'Active'}, callback);
+        },
+        company_count: function(callback) {
+            company.countDocuments({}, callback);
+        },
+        
+    }, function(err, results) {
+        res.render('index', { title: 'Local Library Home', error: err, data: results });
+        console.log(results)
+    });
 }
 
 // Display list of all books.

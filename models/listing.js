@@ -19,7 +19,6 @@ var listingSchema = new Schema(
             sold_date: {type: Date},
             cancelled_date: {type: Date},
             original_price: {type: Number},
-            current_price: {type: Number}
             },
         history: {type: Array},
         listing_company: {type: Schema.Types.ObjectId, ref: 'company'}
